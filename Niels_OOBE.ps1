@@ -178,6 +178,11 @@ if($Install_Edge) {
     choco install -y microsoft-edge  *>&1 | Out-File -append -FilePath "$ScriptDirectory\Microsoft_Edge.txt"
 }
 
+if($Install_Spotify) {
+    Write-LogMessage "Installing Spotify"
+    choco install -y spotify  *>&1 | Out-File -append -FilePath "$ScriptDirectory\Spotify.txt"
+}
+
 if($Install_Ubuntu) {
     Write-LogMessage "Downloading Ubuntu"
     Invoke-WebRequest -Uri https://aka.ms/wsl-ubuntu-1804 -OutFile Ubuntu.appx -UseBasicParsing

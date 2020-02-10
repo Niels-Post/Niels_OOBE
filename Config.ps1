@@ -12,3 +12,5 @@ $Install_Edge = $true
 $Enable_WSL = $true
 $Install_Ubuntu = $true
 $Install_HWLib = $true
+
+$Install_Spotify = $true
