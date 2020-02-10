@@ -71,20 +71,20 @@ if($Enable_WSL) {
 
 
 ######################################## Debloat ##############################################
-#$Cat = "Debloat"
-#
+$Cat = "Debloat"
+
 . ("$ScriptDirectory\Debloat.ps1")
-#
-#New-PSDrive  HKCR -PSProvider Registry -Root HKEY_CLASSES_ROOT | Out-File -append -FilePath "$ScriptDirectory\Debloat.txt"
-#
-#DebloatBlacklist
-#Remove-Keys
-#Protect-Privacy
-#DisableCortana
-#UnpinStart
-#Remove3dObjects
+
+New-PSDrive  HKCR -PSProvider Registry -Root HKEY_CLASSES_ROOT | Out-File -append -FilePath "$ScriptDirectory\Debloat.txt"
+
+DebloatBlacklist
+Remove-Keys
+Protect-Privacy
+DisableCortana
+UnpinStart
+Remove3dObjects
 Remove-SearchBox
-#Remove-PSDrive HKCR
+Remove-PSDrive HKCR
 
 ###############################################################################################
 
