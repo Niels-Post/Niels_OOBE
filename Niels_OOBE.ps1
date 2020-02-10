@@ -120,16 +120,30 @@ if($Install_git) {
 if($Install_CLion) {
     Write-LogMessage "Installing CLion"
     choco install -y clion-ide --install-args="/D=$devapps_folder\Jetbrains\CLion"  *>&1 | Out-File -append -FilePath "$ScriptDirectory\Jetbrains_CLion.txt"
+
+    $subpath = "$devapps_folder\Jetbrains\CLion" -Replace "\\","/"
+    (Get-Content "$devapps_folder\Jetbrains\CLion\bin\idea.properties") -Replace "# idea\.config\.path=[^\n]*","idea.config.path=$subpath/config" | Set-Content "$devapps_folder\Jetbrains\CLion\bin\idea.properties"
+    (Get-Content "$devapps_folder\Jetbrains\CLion\bin\idea.properties") -Replace "# idea\.system\.path=[^\n]*","idea.system.path=$subpath/system" | Set-Content "$devapps_folder\Jetbrains\CLion\bin\idea.properties"
+
 }
 
 if($Install_PyCharm) {
     Write-LogMessage "Installing PyCharm"
     choco install -y Pycharm --install-args="/D=$devapps_folder\Jetbrains\PyCharm"  *>&1 | Out-File -append -FilePath "$ScriptDirectory\Jetbrains_PyCharm.txt"
+
+    $subpath = "$devapps_folder\Jetbrains\PyCharm" -Replace "\\","/"
+    (Get-Content "$devapps_folder\Jetbrains\PyCharm\bin\idea.properties") -Replace "# idea\.config\.path=[^\n]*","idea.config.path=$subpath/config" | Set-Content "$devapps_folder\Jetbrains\PyCharm\bin\idea.properties"
+    (Get-Content "$devapps_folder\Jetbrains\PyCharm\bin\idea.properties") -Replace "# idea\.system\.path=[^\n]*","idea.system.path=$subpath/system" | Set-Content "$devapps_folder\Jetbrains\PyCharm\bin\idea.properties"
+
 }
 
 if($Install_WebStorm) {
     Write-LogMessage "Installing WebStorm"
     choco install -y WebStorm --install-args="/D=$devapps_folder\Jetbrains\WebStorm"  *>&1 | Out-File -append -FilePath "$ScriptDirectory\Jetbrains_WebStorm.txt"
+
+    $subpath = "$devapps_folder\Jetbrains\WebStorm" -Replace "\\","/"
+    (Get-Content "$devapps_folder\Jetbrains\WebStorm\bin\idea.properties") -Replace "# idea\.config\.path=[^\n]*","idea.config.path=$subpath/config" | Set-Content "$devapps_folder\Jetbrains\WebStorm\bin\idea.properties"
+    (Get-Content "$devapps_folder\Jetbrains\WebStorm\bin\idea.properties") -Replace "# idea\.system\.path=[^\n]*","idea.system.path=$subpath/system" | Set-Content "$devapps_folder\Jetbrains\WebStorm\bin\idea.properties"
 
 }
 
@@ -137,11 +151,19 @@ if($Install_IntelliJ) {
     Write-LogMessage "Installing IntelliJ"
     choco install -y intellijidea-ultimate --install-args="/D=$devapps_folder\Jetbrains\IntelliJ"  *>&1 | Out-File -append -FilePath "$ScriptDirectory\Jetbrains_IntelliJ.txt"
 
+    $subpath = "$devapps_folder\Jetbrains\IntelliJ" -Replace "\\","/"
+    (Get-Content "$devapps_folder\Jetbrains\IntelliJ\bin\idea.properties") -Replace "# idea\.config\.path=[^\n]*","idea.config.path=$subpath/config" | Set-Content "$devapps_folder\Jetbrains\IntelliJ\bin\idea.properties"
+    (Get-Content "$devapps_folder\Jetbrains\IntelliJ\bin\idea.properties") -Replace "# idea\.system\.path=[^\n]*","idea.system.path=$subpath/system" | Set-Content "$devapps_folder\Jetbrains\IntelliJ\bin\idea.properties"
+
 }
 
 if($Install_Rider) {
     Write-LogMessage "Installing Rider"
     choco install -y jetbrains-rider --install-args="/D=$devapps_folder\Jetbrains\Rider"  *>&1 | Out-File -append -FilePath "$ScriptDirectory\Jetbrains_Rider.txt"
+
+    $subpath = "$devapps_folder\Jetbrains\Rider" -Replace "\\","/"
+    (Get-Content "$devapps_folder\Jetbrains\Rider\bin\idea.properties") -Replace "# idea\.config\.path=[^\n]*","idea.config.path=$subpath/config" | Set-Content "$devapps_folder\Jetbrains\Rider\bin\idea.properties"
+    (Get-Content "$devapps_folder\Jetbrains\Rider\bin\idea.properties") -Replace "# idea\.system\.path=[^\n]*","idea.system.path=$subpath/system" | Set-Content "$devapps_folder\Jetbrains\Rider\bin\idea.properties"
 }
 
 
